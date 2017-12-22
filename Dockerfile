@@ -19,8 +19,8 @@ RUN apt-get update && \
         doxygen \
         git
 
+RUN git clone https://github.com/monero-project/monero.git /src
 WORKDIR /src
-COPY . .
 RUN rm -rf build && \
     make -j$(nproc) release-static
 
